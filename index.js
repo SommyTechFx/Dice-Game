@@ -1,17 +1,24 @@
 // Function to handle dice roll logic
 function rollDice() {
+  // Play the dice roll sound
+  const diceRollSound = document.getElementById("diceRollSound");
+  diceRollSound.currentTime = 0; // Reset sound to start
+  diceRollSound.play();
+
+  // Get the number of dice to roll
   const numOfDice = Math.min(
     Math.max(document.getElementById("numOfDice").value, 1),
     6
   );
+
   const diceResult = document.getElementById("diceResult");
   const diceimages = document.getElementById("diceimages");
   const values = [];
   const images = [];
 
+  // Show rolling animation
   diceimages.innerHTML = `<img class="rolling" src="Dice_images/rolling.svg" alt="Rolling...">`;
   diceimages.style.display = "block";
-  diceimages.style.opacity = "1";
 
   setTimeout(() => {
     // Generate dice values and corresponding images
@@ -23,22 +30,28 @@ function rollDice() {
       );
     }
 
-    // Check if all dice have the same value
-    const allSame = values.every((val) => val === values[1]);
-    const total = values.reduce((a, b) => a + b, 0); // Calculate total value
+    const allSame = values.every((val) => val === values[1]); // Fix condition for checking if all dice are the same
+    const total = values.reduce((a, b) => a + b, 0);
 
     // Update dice results
     diceResult.textContent = `Dice values: ${values.join(
       ", "
     )} | Total: ${total}`;
 
-    // Display congratulatory message only if the dice values are the same
+    // Display congratulatory message if all dice have the same value
     if (allSame) {
       diceResult.textContent += " Congratulations WE Dixs🎉 !";
+
+      // Play celebratory sound
+      const horray = document.getElementById("horray");
+      horray.currentTime = 0; // Reset sound to start
+      horray.play();
     }
 
+    // Show dice images after the animation
+    diceimages.classList.add("visible");
     diceimages.innerHTML = images.join("");
-  }, 500);
+  }, 500); // Delay to show rolling animation and images
 }
 
 // Enter key event listener for rolling the dice
@@ -70,7 +83,6 @@ document.getElementById("startButton").addEventListener("click", function () {
     // Stop background music after the game starts
     audio.pause();
 
-    // Show the theme toggle button after the game content appears
     const toggleThemeButton = document.getElementById("toggleThemeButton");
     toggleThemeButton.style.display = "block";
   }, 6000);

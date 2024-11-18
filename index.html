@@ -20,6 +20,9 @@
     <audio id="backgroundMusic" loop>
       <source src="Audio/music.mp3" type="audio/mpeg" />
     </audio>
+    <!-- for dice roll -->
+    <audio id="diceRollSound" src="Audio/dice_sound.mp3" preload="auto"></audio>
+    <audio id="horray" src="Audio/hooray.mp3" preload="auto"></audio>
 
     <div id="splashScreen" style="display: none"></div>
     <div id="themeToggle">
@@ -40,11 +43,10 @@
         <button onclick="rollDice()" aria-label="Roll Dice">Roll</button>
       </div>
 
-      <div id="diceResult" class="dice-container">></div>
+      <div id="diceResult" class="dice-container"></div>
       <div id="diceimages"></div>
     </div>
 
-    <!-- Corrected the script tag -->
     <script src="index.js"></script>
   </body>
 </html>

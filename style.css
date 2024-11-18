@@ -143,7 +143,11 @@ body.light-theme h1,
 body.light-theme label {
   color: rgb(80, 80, 80);
 }
-
+#diceResult {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 /* Dice Images and Animations */
 #diceimages {
   display: none;
@@ -153,11 +157,13 @@ body.light-theme label {
   padding: 2rem;
   border-radius: 70%;
   box-shadow: 2px 2px 2px rgb(78, 29, 29);
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease;
   margin: 0.5rem auto;
   max-width: 80%;
 }
-
+#diceimages.visible {
+  opacity: 1;
+}
 body.light-theme #diceimages {
   border: 2px solid rgb(50, 50, 50);
   box-shadow: 2px 2px 2px rgb(80, 80, 80);
