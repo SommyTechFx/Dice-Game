@@ -3,14 +3,13 @@ function rollDice() {
   const numOfDice = Math.min(
     Math.max(document.getElementById("numOfDice").value, 1),
     6
-  ); // Ensure dice count is between 1 and 6
+  );
   const diceResult = document.getElementById("diceResult");
   const diceimages = document.getElementById("diceimages");
   const values = [];
   const images = [];
 
-  // Clear previous results and display rolling animation
-  diceimages.innerHTML = `<img class="rolling" src="Dice_images/rolling.png" alt="Rolling...">`;
+  diceimages.innerHTML = `<img class="rolling" src="Dice_images/rolling.svg" alt="Rolling...">`;
   diceimages.style.display = "block";
   diceimages.style.opacity = "1";
 

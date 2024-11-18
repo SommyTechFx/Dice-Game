@@ -79,7 +79,7 @@ input {
 /* Buttons */
 button {
   font-size: 1.5rem;
-  padding: 0.5rem 2rem;
+  padding: 0.6rem 2.5rem;
   border-radius: 2rem;
   background-color: rgb(233, 5, 5);
   color: #fff;
@@ -91,11 +91,21 @@ button {
 .start {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
+  text-align: center;
+
+  margin-top: 10rem;
+}
+#themeToggle {
+  position: absolute;
+  top: 1rem;
 }
 #toggleThemeButton {
   display: none;
+  justify-content: flex-start;
+  top: 0;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
 }
 #startButton {
   font-size: 1.5rem;
@@ -192,7 +202,6 @@ body.light-theme #diceimages {
   }
 }
 
-/* Splash Screen */
 #splashScreen {
   display: none;
   position: fixed;

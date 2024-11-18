@@ -8,23 +8,19 @@
     <title>Dice Dice</title>
   </head>
   <body>
-    <!-- Loader is hidden initially -->
     <div id="loader">
       <div class="spinner"></div>
       <p>Loading...</p>
     </div>
 
-    <!-- Start Button is visible initially -->
     <div class="start">
-      <button id="startButton">Start Game</button>
+      <button id="startButton">LET'S PLAY....</button>
     </div>
 
-    <!-- Background music -->
     <audio id="backgroundMusic" loop>
       <source src="Audio/music.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- Splash Screen, initially hidden -->
     <div id="splashScreen" style="display: none"></div>
     <div id="themeToggle">
       <button onclick="toggleTheme()" id="toggleThemeButton">
@@ -44,7 +40,7 @@
         <button onclick="rollDice()" aria-label="Roll Dice">Roll</button>
       </div>
 
-      <div id="diceResult"></div>
+      <div id="diceResult" class="dice-container">></div>
       <div id="diceimages"></div>
     </div>
 
