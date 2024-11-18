@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dice Dice</title>
+  </head>
+  <body>
+    <div id="themeToggle">
+      <button onclick="toggleTheme()">Switch Theme</button>
+    </div>
+    <div id="container">
+      <div class="topic">
+        <h1>Dice Roller</h1>
+        <img src="Dice_images/diveimage.webp" alt="" />
+      </div>
+
+      <div id="container2">
+        <label> Pick a Number</label>
+        <input type="number" value="1" min="1" max="6" id="numOfDice" />
+        <button onclick="rollDice()" aria-label="Roll Dice">Roll</button>
+      </div>
+
+      <div id="diceResult"></div>
+      <div id="diceimages"></div>
+    </div>
+    <!-- Corrected the script tag -->
+    <script src="index.js"></script>
+  </body>
+</html>

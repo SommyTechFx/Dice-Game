@@ -1,0 +1,214 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, rgb(43, 11, 11), rgb(90, 35, 35));
+  color: rgb(193, 2, 2);
+  font-family: "Texturina", serif;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+.topic {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+h1 {
+  font-size: 3rem;
+  color: rgb(193, 2, 2);
+}
+.topic img {
+  width: 5rem;
+  object-fit: contain;
+}
+/* Light Theme */
+body.light-theme {
+  background: linear-gradient(135deg, #fff, #ccc);
+  color: #000;
+}
+
+body.light-theme #container {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Container Styling */
+#container {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+  margin: 3rem auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 5, 0.2);
+  max-width: 600px;
+  font-weight: 500;
+}
+
+/* Label Styling */
+label {
+  font-size: 2rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1rem;
+  color: rgb(193, 2, 2);
+}
+
+/* Input Styling */
+input {
+  width: 12rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem auto;
+  border-radius: 5px;
+  border: 1px solid rgb(200, 200, 200);
+  display: block;
+}
+
+/* Buttons */
+button {
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  background-color: rgb(233, 5, 5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: rgb(193, 2, 2);
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: rgb(153, 1, 1);
+  transform: scale(0.95);
+}
+
+body.light-theme button {
+  background-color: rgb(80, 80, 80);
+  color: #fff;
+}
+
+body.light-theme button:hover {
+  background-color: rgb(50, 50, 50);
+}
+body.light-theme h1,
+body.light-theme label {
+  color: rgb(80, 80, 80);
+}
+/* Dice Images and Animations */
+#diceimages {
+  display: none;
+  opacity: 0;
+  border: 2px solid rgb(139, 2, 2);
+  background-color: antiquewhite;
+  padding: 2rem;
+  border-radius: 70%;
+  box-shadow: 2px 2px 2px rgb(78, 29, 29);
+  transition: opacity 0.5s ease-in-out;
+  margin: 0.5rem auto;
+  max-width: 80%;
+}
+body.light-theme #diceimages {
+  border: 2px solid rgb(50, 50, 50);
+  box-shadow: 2px 2px 2px rgb(80, 80, 80);
+  background-color: rgb(235, 233, 231);
+}
+#diceimages img {
+  width: 5rem;
+  padding: 0.1rem;
+  transform: translateY(-20px);
+  animation: slideIn 0.5s forwards ease-in-out;
+  animation-delay: calc(var(--delay, 0) * 0.2s);
+}
+
+#diceimages img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+#diceimages img.rolling {
+  animation: roll 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes roll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #container {
+    margin: 2rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+
+  input {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 0.3rem 1.5rem;
+  }
+
+  #diceimages img {
+    width: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  label {
+    font-size: 1.5rem;
+  }
+
+  input {
+    width: 90%;
+    font-size: 1.1rem;
+    height: 2rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.3rem 1rem;
+  }
+
+  #diceimages img {
+    width: 3rem;
+  }
+}
