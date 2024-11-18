@@ -1,3 +1,4 @@
+// Function to handle dice roll logic
 function rollDice() {
   const numOfDice = Math.min(
     Math.max(document.getElementById("numOfDice").value, 1),
@@ -24,25 +25,24 @@ function rollDice() {
     }
 
     // Check if all dice have the same value
-    const allSame = values.every((val) => val === values[1]);
+    const allSame = values.every((val) => val === values[0]);
     const total = values.reduce((a, b) => a + b, 0); // Calculate total value
 
     // Update dice results
     diceResult.textContent = `Dice values: ${values.join(
       ", "
-    )} | Total: ${total} `;
+    )} | Total: ${total}`;
 
-    // Display congratulatory message only if the dice value is not 1
+    // Display congratulatory message only if the dice values are the same
     if (allSame) {
       diceResult.textContent += " Congratulations WE Dixs🎉 !";
     }
 
-    // Display dice images
     diceimages.innerHTML = images.join("");
-  }, 500); // Wait 500ms for the rolling animation to finish
+  }, 500);
 }
 
-// Add keyboard support for "Enter" key to roll dice
+// Enter key event listener for rolling the dice
 document.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     rollDice();
@@ -53,7 +53,32 @@ document.addEventListener("keydown", (event) => {
 function toggleTheme() {
   document.body.classList.toggle("light-theme");
 }
-setTimeout(function () {
-  document.getElementById("splashScreen").style.display = "none"; // Hide splash screen
-  document.getElementById("container").style.display = "block"; // Show game content
-}, 2000);
+
+// Handle game start
+document.getElementById("startButton").addEventListener("click", function () {
+  // Hide the start button
+  document.getElementById("startButton").style.display = "none";
+
+  // Show the splash screen and loader
+  document.getElementById("splashScreen").style.display = "block";
+  document.getElementById("loader").style.display = "flex"; // Ensure the loader is visible
+
+  // Play background music
+  var audio = document.getElementById("backgroundMusic");
+  audio.play(); // Start the audio
+
+  // After 3 seconds, hide splash screen, hide loader, and show main game content
+  setTimeout(function () {
+    // Hide splash screen
+    document.getElementById("splashScreen").style.display = "none";
+
+    // Hide loader
+    document.getElementById("loader").style.display = "none";
+
+    // Show the main game content
+    document.getElementById("container").style.display = "block";
+
+    // Stop background music after the game starts
+    audio.pause();
+  }, 5000); // Adjusted to 3 seconds for splash screen and loader
+});
