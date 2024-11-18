@@ -53,3 +53,7 @@ document.addEventListener("keydown", (event) => {
 function toggleTheme() {
   document.body.classList.toggle("light-theme");
 }
+setTimeout(function () {
+  document.getElementById("splashScreen").style.display = "none"; // Hide splash screen
+  document.getElementById("container").style.display = "block"; // Show game content
+}, 2000);
