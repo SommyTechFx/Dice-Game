@@ -15,7 +15,9 @@
     </div>
 
     <!-- Start Button is visible initially -->
-    <button id="startButton">Start Game</button>
+    <div class="start">
+      <button id="startButton">Start Game</button>
+    </div>
 
     <!-- Background music -->
     <audio id="backgroundMusic" loop>
@@ -25,7 +27,9 @@
     <!-- Splash Screen, initially hidden -->
     <div id="splashScreen" style="display: none"></div>
     <div id="themeToggle">
-      <button onclick="toggleTheme()">Switch Theme</button>
+      <button onclick="toggleTheme()" id="toggleThemeButton">
+        Switch Theme
+      </button>
     </div>
     <!-- Main game content, initially hidden -->
     <div id="container" style="display: none">

@@ -25,7 +25,7 @@ function rollDice() {
     }
 
     // Check if all dice have the same value
-    const allSame = values.every((val) => val === values[0]);
+    const allSame = values.every((val) => val === values[1]);
     const total = values.reduce((a, b) => a + b, 0); // Calculate total value
 
     // Update dice results
@@ -49,27 +49,17 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Theme toggle function
-function toggleTheme() {
-  document.body.classList.toggle("light-theme");
-}
-
-// Handle game start
+// Event listener for Start button
 document.getElementById("startButton").addEventListener("click", function () {
-  // Hide the start button
   document.getElementById("startButton").style.display = "none";
-
-  // Show the splash screen and loader
   document.getElementById("splashScreen").style.display = "block";
-  document.getElementById("loader").style.display = "flex"; // Ensure the loader is visible
+  document.getElementById("loader").style.display = "flex";
 
   // Play background music
   var audio = document.getElementById("backgroundMusic");
   audio.play(); // Start the audio
 
-  // After 3 seconds, hide splash screen, hide loader, and show main game content
   setTimeout(function () {
-    // Hide splash screen
     document.getElementById("splashScreen").style.display = "none";
 
     // Hide loader
@@ -80,5 +70,14 @@ document.getElementById("startButton").addEventListener("click", function () {
 
     // Stop background music after the game starts
     audio.pause();
-  }, 5000); // Adjusted to 3 seconds for splash screen and loader
+
+    // Show the theme toggle button after the game content appears
+    const toggleThemeButton = document.getElementById("toggleThemeButton");
+    toggleThemeButton.style.display = "block";
+  }, 6000);
 });
+
+// Theme toggle function
+function toggleTheme() {
+  document.body.classList.toggle("light-theme");
+}
